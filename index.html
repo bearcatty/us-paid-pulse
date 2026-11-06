@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN"><head><title>美区付费脉搏</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap"/>
+<style>
+:root{--bg:#eaf0f5;--surface:#f5f8fb;--ink:#172f43;--muted:#52687a;--line:#ccd8e3;--accent:#2a78d6;--wash:#e3edf9;--deep:#18549a;--focus:#18549a;--shadow:rgba(23,47,67,.08);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101a23;--surface:#16222d;--ink:#e5edf5;--muted:#a9bdcf;--line:#344859;--accent:#3987e5;--wash:#1c344e;--deep:#91bbf0;--focus:#91bbf0;--shadow:rgba(0,0,0,.15);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101a23;--surface:#16222d;--ink:#e5edf5;--muted:#a9bdcf;--line:#344859;--accent:#3987e5;--wash:#1c344e;--deep:#91bbf0;--focus:#91bbf0;--shadow:rgba(0,0,0,.15);color-scheme:dark}
+*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);font:14px/1.8 "Noto Sans SC",system-ui,-apple-system,sans-serif}a{color:var(--deep);text-underline-offset:3px}button,input,select{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--focus);outline-offset:4px}h1,h2,h3,p{margin:0}h1,h2,h3{text-wrap:balance;line-height:1.35}h1{font-size:clamp(30px,4.2vw,52px);font-weight:700;letter-spacing:-.04em}h2{font-size:24px;letter-spacing:-.02em}h3{font-size:17px}p{max-width:72ch}small,.muted{color:var(--muted)}.mono,.rank,.price{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace}.label{font-family:"Barlow Semi Condensed",system-ui,sans-serif;letter-spacing:.13em;font-size:13px;font-weight:600}.page{max-width:1200px;margin-inline:auto;padding-inline:24px;padding-block:32px 64px;display:grid;gap:32px}.mast{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;color:var(--muted)}.mast .code{border:1px solid var(--line);padding:5px 10px}.hero{display:grid;gap:20px;padding-block:12px}.hero p{font-size:16px}.meta{display:flex;gap:10px 24px;flex-wrap:wrap;color:var(--muted);font-size:12px}.summary{background:var(--surface);padding:24px;display:grid;gap:22px;box-shadow:0 3px 14px var(--shadow)}.summary-head{display:grid;gap:8px}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.fact{display:grid;align-content:start;gap:4px}.fact strong{font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:600;font-size:37px;line-height:1.2}.fact span{font-size:12px;color:var(--muted)}.read{display:grid;grid-template-columns:1.4fr 1fr;gap:36px}.text-stack{display:grid;gap:16px}.points{display:grid;gap:18px}.point{display:grid;gap:5px}.point p{color:var(--muted)}.scope{background:var(--wash);padding:20px;display:grid;gap:12px;align-content:start}.scope p{font-size:13px}.nav{display:flex;flex-wrap:wrap;gap:16px;border-block:1px solid var(--line);padding-block:12px;font-size:13px}.section{display:grid;gap:20px}.section-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:end}.section-head p{font-size:13px;color:var(--muted)}.tag{display:inline-block;font-size:11px;line-height:1.5;padding:3px 7px;background:var(--wash);color:var(--deep)}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px}.chart{display:grid;gap:10px;background:var(--surface);padding:20px}.chart-caption{font-size:12px;color:var(--muted)}.chart-bars{display:grid;gap:4px}.bar-row{display:grid;grid-template-columns:130px 1fr 64px;align-items:center;gap:12px;position:relative;min-height:34px;font-size:12px}.bar-row:focus-visible,.bar-row:hover{background:var(--wash)}.bar-track{height:16px;border-left:1px solid var(--line);background:linear-gradient(to right,transparent calc(50% - .5px),var(--line) calc(50% - .5px),var(--line) calc(50% + .5px),transparent calc(50% + .5px));display:flex;align-items:center}.bar-fill{height:12px;background:var(--accent);border-radius:0 4px 4px 0;width:var(--w)}.bar-number{text-align:right;font-variant-numeric:tabular-nums}.bar-row .tip{position:absolute;z-index:2;right:0;bottom:100%;background:var(--ink);color:var(--surface);padding:6px 10px;border-radius:3px;visibility:hidden;pointer-events:none}.bar-row:hover .tip,.bar-row:focus .tip{visibility:visible}.axis{display:grid;grid-template-columns:130px 1fr 64px;gap:12px;color:var(--muted);font-size:10px}.ticks{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}.table-wrap{overflow-x:auto;max-width:100%;background:var(--surface);border:1px solid var(--line)}table{border-collapse:collapse;width:100%;font-size:12px}th{text-align:left;font-weight:500;color:var(--muted);background:var(--wash);white-space:nowrap}th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}tr:last-child td{border-bottom:0}td.price{white-space:nowrap}td.rank{color:var(--muted);font-variant-numeric:tabular-nums}td.name{min-width:180px}td.detail{min-width:240px;max-width:340px;color:var(--muted)}td.category{min-width:140px}td.category span{display:block;font-size:10px;color:var(--muted);margin-top:3px}.app-link{font-weight:600;text-decoration:none;color:var(--ink)}.app-link:hover{text-decoration:underline;color:var(--deep)}.sub{display:block;font-size:10px;color:var(--muted);margin-top:3px}.num{font-variant-numeric:tabular-nums;white-space:nowrap}.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.field{display:grid;gap:4px;font-size:12px;color:var(--muted)}.field input,.field select{background:var(--surface);border:1px solid var(--line);color:var(--ink);padding:8px 10px;border-radius:3px;max-width:100%}.field input{width:250px}.switch{display:flex;flex-wrap:wrap;gap:4px}.switch button{background:var(--surface);color:var(--muted);border:1px solid var(--line);padding:8px 12px;border-radius:3px}.switch button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}.results{font-size:12px;color:var(--muted)}.newcomers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.new-app{display:grid;gap:7px;border-top:3px solid var(--line);padding-top:14px;align-content:start}.new-app header{display:flex;justify-content:space-between;gap:12px;align-items:start}.new-app p{font-size:12px;color:var(--muted)}.new-app h3{font-size:16px}.new-app .price{font-size:13px;white-space:nowrap}.new-app .evidence{font-size:11px;color:var(--muted)}.opportunities{display:grid;gap:0;border-top:1px solid var(--line)}.opportunity{display:grid;grid-template-columns:160px 1fr 1fr;gap:24px;padding-block:20px;border-bottom:1px solid var(--line)}.opportunity p{font-size:13px;color:var(--muted)}.opportunity .status{font-size:11px;color:var(--deep)}.notes{display:grid;gap:12px;font-size:12px;color:var(--muted)}.sources{display:grid;gap:10px;font-size:12px}.sources a{overflow-wrap:anywhere}.footer{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--muted)}.empty{padding:20px;color:var(--muted)}
+@media(max-width:800px){.read,.two-col{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,1fr)}.newcomers{grid-template-columns:repeat(2,1fr)}.opportunity{grid-template-columns:1fr;gap:10px}.page{padding-inline:20px}.bar-row,.axis{grid-template-columns:115px 1fr 60px;gap:8px}}
+@media(max-width:480px){.page{padding-inline:16px;padding-block:22px 40px;gap:24px}.summary{padding:18px}.newcomers{grid-template-columns:1fr}.facts{gap:20px}.fact strong{font-size:32px}.chart{padding:14px}.hero p{font-size:14px}h2{font-size:21px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media print{.filters,.nav{display:none}.page{max-width:none}.table-wrap{overflow:visible}.bar-fill{print-color-adjust:exact;background-image:repeating-linear-gradient(45deg,transparent 0 4px,var(--surface) 4px 5px)}.section{break-inside:avoid}}
+@media(forced-colors:active){.bar-fill{background:Highlight;forced-color-adjust:none}.bar-track{border:1px solid CanvasText}.tag{border:1px solid CanvasText}}
+</style>
+</head><body><main class="page">
+<div class="mast"><span class="label">PAID DOWNLOADS / UNITED STATES</span><span class="code mono">SNAPSHOT · 2026.11.06</span></div>
+<header class="hero">
+<h1>美区付费脉搏</h1>
+<p>用户愿意先付钱下载什么？从游戏、乐器练习到电工弯管，拆开当前美区付费榜的应用、价格与细分需求。</p>
+<div class="meta"><span>地区：美国 storefront</span><span>平台：iPhone 付费下载口径，非 iPad 专榜</span><span>榜单：两份 Top 50 快照</span><span>美元价格，不含税与额外服务</span></div>
+</header>
+<section class="summary" aria-labelledby="summary-title">
+<div class="summary-head"><span class="label">THE READOUT</span><h2 id="summary-title">总榜由游戏主导；应用侧为明确用途付费。</h2><p class="muted">这是排名样本，不是市场规模。以下占比均按 App 数量等权计算，不能解释为下载量或收入份额。</p></div>
+<div class="facts">
+<div class="fact"><strong>64%</strong><b>总榜 Top 50 主分类为游戏</b><span>32 款 Games；其余 18 款非 Games</span></div>
+<div class="fact"><strong>$5.99</strong><b>应用榜下载价格中位数</b><span>范围 $0.99–$24.99；均值 $6.73</span></div>
+<div class="fact"><strong>9 / 50</strong><b>官方 Music 分类应用</b><span>占应用榜 18%，为最大的单一官方分类</span></div>
+<div class="fact"><strong>12 / 50</strong><b>2026 年首次发布的应用</b><span>其中 8 款的首发日期在近 30 天内</span></div>
+</div>
+</section>
+<nav class="nav" aria-label="报告章节"><a href="#verticals">垂类分布</a><a href="#new">新产品观察</a><a href="#ranking">完整榜单</a><a href="#opportunities">选品判断</a><a href="#method">口径与来源</a></nav>
+<section class="read">
+<div class="points">
+<div class="point"><h3>专业工作流与兴趣爱好，比泛功能更能解释付费。</h3><p>音乐制作与练习、考试备考、坐标导航、弯管计算和车辆诊断都有明确使用场景。AnkiMobile $24.99、iReal Pro $21.99 表明，高价并非不能上榜，但通常伴随成熟工作流与内容生态。</p></div>
+<div class="point"><h3>复古、拟物与触觉体验，是这次快照值得观察的另一条线。</h3><p>磁带播放器、微型复古电脑、四轨录音、胶片相机与 ASMR 玩具同时出现。它们卖的不只是“能完成任务”，还有使用时的感受；单日上榜尚不能证明这种偏好持续增长。</p></div>
+<div class="point"><h3>新面孔能进入前列，但榜单仍有明显的老产品底盘。</h3><p>应用榜中 33 款的接口首发日期早于 2021-11-07；12 款首发于 2026 年。生命周期与短期发行热度并存，不应只研究当日最显眼的新 App。</p></div>
+</div>
+<aside class="scope"><h3>先分清三种“付费”</h3><p><b>付费下载榜：</b>先付款获得 App，本报告研究的对象。</p><p><b>畅销／收入榜：</b>按收入衡量；与本榜不同。</p><p><b>永久买断：</b>需逐款核实。付费下载后，仍可能有订阅、内购、硬件或雇主服务前提。</p><p><b>地域边界：</b>“美区上榜”不等于使用者全是美国居民，尤其不能仅据代理工具排名推断美国本土需求。</p></aside>
+</section>
+<section class="section" id="verticals">
+<div class="section-head"><h2>垂类分布</h2><p>基于新版 Top Paid Apps 50 款；每款按核心用途只归入一个研究垂类。</p></div>
+<div class="two-col">
+<figure class="chart" style="margin:0" aria-labelledby="chart-title">
+<h3 id="chart-title">入榜应用数 / 研究垂类</h3><p class="chart-caption">横轴为款数，统一 0–10 刻度；悬停或聚焦可查看占比。</p>
+<div class="chart-bars" id="vertical-bars"></div>
+<div class="axis"><span></span><div class="ticks"><span>0</span><span>5</span><span>10 款</span></div><span></span></div>
+</figure>
+<div class="text-stack"><h3>官方分类与真实用途，不是同一层信息。</h3><p>Music 包括播放器、调音器、伴奏工具、采样器和音乐工作站；Productivity 则同时包含笔记、任务管理和电工计算。选品应继续拆到用户、任务与使用环境。</p><p class="muted">研究归类将摄影、绘画和照片工具合为“影像与视觉创作”，共 7 款；这是研究分类，不是 Apple 官方 Photo &amp; Video 的 4 款。</p><div class="scope"><p><b>交叉属性提示：</b>Tiny Computers 和 Pocket God 的主分类为 Entertainment，但带 Games 副分类／游戏性质。因此这里称“应用榜”，而不是严格排除所有游戏体验的集合。</p></div></div>
+</div>
+<div class="table-wrap"><table aria-label="研究垂类数据表"><thead><tr><th>研究垂类</th><th>应用数</th><th>样本占比</th><th>下载价格范围</th><th>代表应用</th></tr></thead><tbody id="vertical-table"></tbody></table></div>
+</section>
+<section class="section" id="new">
+<div class="section-head"><h2>新产品观察</h2><p>以下为产品事实与定位解读；不是增速、销量或传播渠道的判断。</p></div>
+<div class="newcomers" id="newcomers"></div>
+<p class="muted" style="font-size:12px">应用榜共有 10 款的美区累计评分人数不足 100。Pocket Mac Lab 为 1 人、AltoPaint 为 3 人，Satisfy 与 PhotoUnlocked 为 0 人；这些产品的高均分或无评分不能作为质量与需求强度的可靠证据。</p>
+</section>
+<section class="section" id="ranking">
+<div class="section-head"><h2>完整榜单与细分垂类</h2><p>价格、官方分类、评分及首发日期均来自 Apple 美区 Lookup API。</p></div>
+<div class="filters">
+<div class="switch" aria-label="选择榜单"><button id="chart-apps" type="button" aria-pressed="true">应用榜 Top 50</button><button id="chart-overall" type="button" aria-pressed="false">混合总榜 Top 50</button></div>
+<label class="field" for="app-search">查找应用或用途<input id="app-search" type="search" placeholder="例如：音乐、相机、弯管"/></label>
+<label class="field" for="vertical-filter">研究垂类<select id="vertical-filter"><option value="">全部垂类</option></select></label>
+</div>
+<p class="results" id="ranking-count" aria-live="polite">载入当前快照…</p>
+<div class="table-wrap"><table aria-label="当前美区付费下载榜单"><thead><tr><th>排名</th><th>App / 接口首发日期</th><th>下载价</th><th>细分垂类 / 官方主分类</th><th>核心用途与限制</th><th>美区评分 / 人数</th></tr></thead><tbody id="ranking-body"></tbody></table><p class="empty" id="empty-state" hidden="">没有匹配的应用。请换一个关键词或选择“全部垂类”。</p></div>
+<p class="muted" style="font-size:12px">总榜与应用榜来自不同接口、不同更新时间，不能将其排名直接拼接或严格互推。分数四舍五入至两位；0 人显示“暂无评分”。所有产品链接指向官方美国区产品地址，但本次网页访问发生重定向，功能核实依赖官方 API 描述。</p>
+</section>
+<section class="section">
+<div class="section-head"><h2>商业模式：别把下载价当总成本</h2><p>根据开发商在官方接口中的描述核实；未列出不代表没有额外费用。</p></div>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>本次核实的例子</th><th>对产品研究的意义</th></tr></thead><tbody>
+<tr><td>明确无订阅、无内购</td><td>MilGPS、AutoSleep、ROLLIE&#39;S、Tiny Computers、Deck-Man、Pocket Mac Lab、Satisfy</td><td>可把一次性价格视为核心 App 的变现入口；第三方硬件或内容仍需另核。</td></tr>
+<tr><td>付费下载 + 可选订阅／持续服务</td><td>2AM CAM 云备份、RadarScope Pro、imo Premium；Goblin Tools 描述另有 Pro 服务，未核实其具体计费周期。</td><td>本地核心功能与持续成本功能分层；不能把它们整体归为纯买断。</td></tr>
+<tr><td>付费下载 + 额外内购</td><td>TypeDraw 额外笔记本、iReal Pro 额外风格、Koala SAMURAI／MIXER、Solocator Industry Pack、White Noise Generator</td><td>下载价格只是入口。具体内购金额未读取到，未纳入价格统计。</td></tr>
+<tr><td>账号、硬件或配套软件前提</td><td>HotSchedules 需要雇主账号；FORScan 需要兼容 OBD 适配器；Pocket Mac Lab 需要自己的 Mac 和配套程序。</td><td>上榜可能与组织工作流、硬件生态有关，不能照搬为一般消费者机会。</td></tr>
+</tbody></table></div>
+</section>
+<section class="section" id="opportunities">
+<div class="section-head"><h2>如果用它做选品，优先验证什么？</h2><p>以下是建议，不是已验证的市场结论。</p></div>
+<div class="opportunities">
+<div class="opportunity"><div><h3>窄职业任务工具</h3><span class="status">优先研究 · 依赖领域知识</span></div><p><b>证据：</b>QuickBend、Solocator、FORScan 和备考 App 将价值落到具体工作、取证、诊断或考试。可先找高频、重复、能节省时间或减少错误的小任务。</p><p><b>验证：</b>访谈目标从业者，复现真实流程，测试一次性付费意愿。准确性、硬件兼容和责任边界是门槛，不适合不懂行业就复制界面。</p></div>
+<div class="opportunity"><div><h3>创作者的“小仪器”</h3><span class="status">优先研究 · 专业体验</span></div><p><b>证据：</b>9 款音乐 App，涵盖练习、采样、四轨录音与乐队伴奏；影像侧又有 RAW、胶片和真实颜料。价值可来自一个环节做得足够好，而非全功能套件。</p><p><b>验证：</b>围绕一种乐器、一类创作习惯或一个风格做原型；测试输出效果与交互是否真优于系统功能，避免只卖装饰性的复古外壳。</p></div>
+<div class="opportunity"><div><h3>本地优先的单用途 App</h3><span class="status">值得研究 · 买断可持续性</span></div><p><b>证据：</b>Noir、AutoSleep、MilGPS、ROLLIE&#39;S 等明确强调无订阅或隐私。本地处理、离线使用、无需账号可能是定位的一部分。</p><p><b>验证：</b>是否有无需持续云成本的核心任务？买断收入能否覆盖长期适配、支持与获客？不能仅据文案就认定用户普遍“反订阅”。</p></div>
+<div class="opportunity"><div><h3>复古与触觉轻体验</h3><span class="status">观察名单 · 先验证持久性</span></div><p><b>证据：</b>Tiny Computers、Deck-Man 和 Satisfy 将怀旧、机械操作或触觉反馈变成产品主体。适合设计能力强、范围可控的小团队探索。</p><p><b>验证：</b>至少跟踪 2–4 周排名与反馈，区分首发热度、演示吸引力和重复使用价值。当前低评分样本不足以支持商业规模推断。</p></div>
+<div class="opportunity"><div><h3>AI 聚焦一个阻力点</h3><span class="status">有选择地研究 · 别做泛聊天壳</span></div><p><b>证据：</b>Goblin Tools 以任务拆解、表达与执行功能辅助为核心卖点；榜单没有提供“通用 AI 聊天买断是主流”的证据。</p><p><b>验证：</b>明确用户、可测量任务改善、推理成本和隐私要求；云服务持续成本需单独设计收费层，不能承诺无限买断而不算账。</p></div>
+</div>
+</section>
+<section class="section" id="method">
+<h2>口径、限制与来源</h2>
+<div class="notes">
+<p><b>时间：</b>应用榜 feed updated 为 2026-11-06 14:40:57 UTC；混合总榜为 2026-11-06 13:40:59 UTC（源字段 06:40:59 −07:00）；本地价格与元数据采集完成于 14:41:49 UTC。北京时间分别为 22:40:57、21:40:59、22:41:49。排名会实时变化。</p>
+<p><b>样本：</b>新版美国区 Top Paid Apps 50 款；旧版美国区 topPaidApplications 接口返回 99 条，本报告只取前 50。两榜合计 82 款去重应用。包括支持 iPhone、同时可能支持 iPad 的应用，不是 iPad 独立榜。</p>
+<p><b>分类：</b>64% 按官方 primaryGenreName = Games 判定，严格说是“Games 标签应用占比”，不是独立游戏内容占比：其中 SUMEE! 为不内置游戏的模拟器。研究垂类根据官方 description 人工归纳，互斥分组。Tiny Computers、Pocket God 等边界产品不强行从应用榜删除。</p>
+<p><b>统计：</b>下载价格为接口 price、币种 USD；应用榜均值 $6.73、中位数 $5.99；总榜均值 $6.09、中位数 $4.99。未纳入税、内购、订阅与硬件。首发日期用 releaseDate，不代表团队成立或整个品牌的历史。</p>
+<p><b>不能得出的结论：</b>榜单不提供下载数、收入、利润、获客成本或留存；不能据此估算市场份额、商业规模、排名增速或热度来源。美国 storefront 也不是用户居住地统计。</p>
+<p><b>产品事实边界：</b>功能和无订阅等描述是开发商声明，未对 App 进行安装实测。健康工具不替代医疗诊疗；灵异主题产品的宣称不视为科学证据。元数据可能含历史沿用或区域调整，低评分样本尤其需谨慎。</p>
+<p><b>接口与网页：</b>Apple 官方 RSS 和美区 Lookup 均成功读取；apps.apple.com 美区详情页在本次访问中重定向至中国 Today 页，因此未从网页核实内购清单。不明状态保留为不明。</p>
+</div>
+<div class="sources">
+<p><b>原始榜单：</b><a href="https://rss.marketingtools.apple.com/api/v2/us/apps/top-paid/50/apps.json" rel="noopener noreferrer" target="_blank">Apple Marketing Tools · US Top Paid Apps 50</a></p>
+<p><b>混合总榜：</b><a href="https://itunes.apple.com/us/rss/toppaidapplications/limit=100/json" rel="noopener noreferrer" target="_blank">Apple iTunes RSS · US Top Paid Applications</a></p>
+<p><b>价格与产品描述：</b><a href="https://itunes.apple.com/lookup?country=us&amp;id=932747118,373493387,497716362,586149216,288419283" rel="noopener noreferrer" target="_blank">Apple Lookup API · 美区示例查询</a>；完整榜单每款附对应官方产品链接。</p>
+</div>
+</section>
+<footer class="footer"><span>美区付费脉搏 · 一次性研究快照，不自动刷新</span><span class="mono">USD / PAID DOWNLOADS / NOV 06 2026</span></footer>
+</main>
+<script src="paid-data.js"></script>
+<script>
+const DATA=window.PAID_RESEARCH;
+const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
+const usd=value=>'$'+Number(value).toFixed(2);
+const appLink=app=>{const a=el('a',app.name,'app-link');a.href=app.url;a.target='_blank';a.rel='noopener noreferrer';return a;};
+function drawVerticals(){
+ const bars=document.getElementById('vertical-bars'),table=document.getElementById('vertical-table');
+ for(const group of DATA.groups){
+  const row=el('div',undefined,'bar-row');row.tabIndex=0;row.setAttribute('aria-label',group.name+'：'+group.count+'款，占'+group.share+'%');
+  const track=el('div',undefined,'bar-track'),fill=el('div',undefined,'bar-fill');fill.style.setProperty('--w',(group.count/10*100)+'%');track.append(fill);
+  row.append(el('span',group.name),track,el('span',group.count+' / '+group.share+'%','bar-number'),el('span',group.count+' 款 · 样本占比 '+group.share+'%','tip'));bars.append(row);
+  const tr=el('tr');for(const value of [group.name,group.count,group.share+'%',usd(group.min)+'–'+usd(group.max),group.examples])tr.append(el('td',value));table.append(tr);
+ }
+}
+function drawNewcomers(){
+ const ids=['6803329435','6816896250','6817070335','6822194774','6800616114','6826478625','6825181273','6777792345','6821710782'];
+ const parent=document.getElementById('newcomers');
+ for(const id of ids){const app=DATA.rows.find(x=>x.chart==='non-game'&&x.id===id),article=el('article',undefined,'new-app'),head=el('header'),title=el('h3');title.append(appLink(app));head.append(title,el('span',usd(app.priceUSD),'price'));
+ article.append(el('span','应用榜 #'+app.rank+' · '+app.subvertical,'tag'),head,el('p',app.detail),el('div','首发 '+app.releaseDate.slice(0,10)+' · '+app.ratingCount.toLocaleString('en-US')+' 人评分','evidence'));parent.append(article);}
+}
+let selectedChart='non-game';
+function populateFilters(){const select=document.getElementById('vertical-filter');select.replaceChildren(new Option('全部垂类',''));const names=[...new Set(DATA.rows.filter(x=>x.chart===selectedChart).map(x=>x.vertical))];for(const name of names)select.append(new Option(name,name));}
+function drawRanking(){
+ const search=document.getElementById('app-search').value.trim().toLocaleLowerCase(),vertical=document.getElementById('vertical-filter').value;
+ const rows=DATA.rows.filter(app=>app.chart===selectedChart&&(!vertical||app.vertical===vertical)&&(!search||[app.name,app.vertical,app.subvertical,app.detail,app.category].join(' ').toLocaleLowerCase().includes(search)));
+ const body=document.getElementById('ranking-body');body.replaceChildren();
+ for(const app of rows){
+  const tr=el('tr'),name=el('td',undefined,'name');name.append(appLink(app),el('span',app.releaseDate.slice(0,10)+' · '+app.seller,'sub'));
+  const category=el('td',app.subvertical,'category');category.append(el('span','Apple: '+app.category));
+  const rating=el('td',app.ratingCount?app.rating.toFixed(2)+' / 5':'暂无评分','num');rating.append(el('span',app.ratingCount.toLocaleString('en-US')+' 人','sub'));
+  tr.append(el('td',String(app.rank).padStart(2,'0'),'rank'),name,el('td',usd(app.priceUSD),'price'),category,el('td',app.detail,'detail'),rating);body.append(tr);
+ }
+ document.getElementById('ranking-count').textContent=(selectedChart==='non-game'?'应用榜':'混合总榜')+' · 显示 '+rows.length+' / 50 款 · 过滤不改变原始排名';document.getElementById('empty-state').hidden=rows.length>0;
+}
+function chooseChart(chart){selectedChart=chart;document.getElementById('chart-apps').setAttribute('aria-pressed',String(chart==='non-game'));document.getElementById('chart-overall').setAttribute('aria-pressed',String(chart==='overall'));populateFilters();drawRanking();}
+if(DATA){drawVerticals();drawNewcomers();populateFilters();drawRanking();document.getElementById('chart-apps').addEventListener('click',()=>chooseChart('non-game'));document.getElementById('chart-overall').addEventListener('click',()=>chooseChart('overall'));document.getElementById('app-search').addEventListener('input',drawRanking);document.getElementById('vertical-filter').addEventListener('change',drawRanking);}else{document.getElementById('ranking-count').textContent='榜单数据未能加载，请重新打开本页。';}
+</script>
+</body></html>
